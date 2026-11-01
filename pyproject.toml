@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trustsweep"
+version = "0.1.0"
+description = "Find every CA trust store on a machine or container image (OS, Python certifi/pip, Java cacerts, Node) and check them all at once."
+readme = "README.md"
+license = "AGPL-3.0-or-later"
+authors = [{ name = "Mohammad Hamarsheh" }]
+requires-python = ">=3.9"
+dependencies = []
+keywords = ["tls", "ssl", "ca-certificates", "certifi", "trust-store", "pki", "devops", "security"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Environment :: Console",
+  "Topic :: Security :: Cryptography",
+  "Topic :: System :: Systems Administration",
+]
+
+[project.urls]
+Homepage = "https://github.com/hamarshehmhmd/trustsweep"
+Issues = "https://github.com/hamarshehmhmd/trustsweep/issues"
+
+[project.scripts]
+trustsweep = "trustsweep.cli:main"
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "tests"]
